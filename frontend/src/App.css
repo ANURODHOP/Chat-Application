@@ -1,0 +1,351 @@
+/* Instagram-inspired Chat App Styles */
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fafafa;
+  color: #262626;
+  justify-content: center;
+  align-items: center;
+}
+
+/* App Container */
+.app {
+  max-width: 935px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Auth Forms (Login/Register) - Instagram-like */
+.auth-form {
+  background: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  max-width: 350px;
+  margin: 50px auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.auth-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #262626;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 10px;
+  background: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.auth-form button:hover {
+  background: #1877f2;
+}
+
+.auth-form p {
+  font-size: 14px;
+  color: #8e8e8e;
+}
+
+.auth-form p button {
+  background: none;
+  color: #0095f6;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.error {
+  color: #ed4956;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Chat Container - Full Instagram DM Layout */
+.chat-container {
+  display: flex;
+  height: 90vh;
+  max-height: 800px;
+  background: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* User List Sidebar - Like Instagram DM List */
+.user-list {
+  width: 350px;
+  border-right: 1px solid #dbdbdb;
+  background: white;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.user-list h3 {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 16px 8px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.user-list ul {
+  list-style: none;
+}
+
+.user-list li {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.user-list li:hover {
+  background: #fafafa;
+}
+
+.user-list li.active {
+  background: #efefef;
+}
+
+.user-list .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-right: 12px;
+  background: #dbdbdb;  /* Placeholder; replace with img src */
+}
+
+.user-list .avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-list .user-info {
+  flex: 1;
+}
+
+.user-list .user-info .name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.user-list .user-info .last-message {
+  font-size: 12px;
+  color: #8e8e8e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Chat Area - Main DM View */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat Header - Like Instagram DM Top Bar */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #dbdbdb;
+  background: white;
+}
+
+.chat-header .back-btn {
+  font-size: 24px;
+  margin-right: 16px;
+  cursor: pointer;
+  color: #262626;
+}
+
+.chat-header .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 12px;
+  background: #dbdbdb;  /* Placeholder */
+}
+
+.chat-header .user-info {
+  flex: 1;
+}
+
+.chat-header .user-info .name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.chat-header .user-info .status {
+  font-size: 12px;
+  color: #8e8e8e;
+}
+
+.chat-header .icons {
+  display: flex;
+  gap: 16px;
+}
+
+.chat-header .icons svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: #262626;
+}
+
+/* Message List - Scrollable Chat Area */
+.message-list {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+}
+
+/* Message Bubbles - Instagram Style */
+.message {
+  max-width: 75%;
+  padding: 10px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);  /* Instagram gradient for sent */
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.message.received {
+  align-self: flex-start;
+  background: rgb(94, 104, 114);
+  color: rgb(252, 250, 250);
+  border-bottom-left-radius: 4px;
+}
+
+.message .timestamp {
+  font-size: 11px;
+  color: rgb(140, 208, 231);  /* For sent; adjust for received */
+  text-align: right;
+  margin-top: 4px;
+}
+
+.message img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 4px;
+}
+
+/* Input Area - Bottom Bar */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-top: 1px solid #dbdbdb;
+  background: white;
+}
+
+.input-area input[type="text"] {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #dbdbdb;  /* Visible border */
+  background: #fafafa;  /* Light gray background for visibility */
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  margin: 0 8px;
+  color: blueviolet;
+}
+
+.input-area input[type="text"]:focus {
+  border-color: #0095f6;  /* Blue focus like Instagram */
+}
+
+.input-area input[type="file"] {
+  display: none;  /* Hide file input; trigger via icon */
+}
+
+.input-area .icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: #262626;
+  margin: 0 8px;
+}
+
+.input-area button {
+  background: none;
+  border: none;
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.black{
+  color: black;
+}
+
+.white:hover{
+  color: white;
+}
+
+.chat-photo {
+  width: 200px;
+  border-radius: 12px;
+  margin-top: 4px;
+}
+
+p.error {
+  color: #ed4956;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .chat-container {
+    flex-direction: column;
+  }
+
+  .user-list {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  .chat-area {
+    height: auto;
+  }
+}
