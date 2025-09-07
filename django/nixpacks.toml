@@ -1,5 +1,7 @@
+providers = ["python"]
+
 [phases.setup]
-packages = [ "python3", "gcc" ]
+packages = [ "python3", "pip" ]
 
 [phases.build]
 commands = [
