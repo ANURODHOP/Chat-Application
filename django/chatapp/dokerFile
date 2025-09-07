@@ -1,0 +1,30 @@
+FROM python:3.11-slim  # Use your Python version (e.g., 3.11 for Django 5.2+)
+
+# Set environment variables for efficiency
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set working directory
+WORKDIR /app/django/chatapp
+
+# Install system dependencies if needed (e.g., for psycopg2 or Redis)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy and install requirements first for caching
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy the rest of your code
+COPY . .
+
+# Run migrations and collect static files
+RUN python manage.py migrate && python manage.py collectstatic --noinput
+
+# Expose the port (Railway uses $PORT dynamically)
+EXPOSE $PORT
+
+# Start with daphne for your ASGI/Chat app
+CMD ["daphne", "chatapp.asgi:application", "--bind", "0.0.0.0", "--port", "$PORT"]
