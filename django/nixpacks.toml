@@ -7,6 +7,3 @@ commands = [
   "cd chatapp",  # Then go to subfolder with manage.py
   "python manage.py migrate"
 ]
-
-[phases.start]
-commands = "cd chatapp && daphne chatapp.asgi:application"
