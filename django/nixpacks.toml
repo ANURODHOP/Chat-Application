@@ -1,9 +1,0 @@
-[phases.setup]
-packages = ["python3Full", "python3Packages.pip", "gcc"]  
-
-[phases.build]
-commands = [
-  "pip install -r requirements.txt",
-  "cd chatapp",  # Then go to subfolder with manage.py
-  "python manage.py migrate"
-]

@@ -1,0 +1,24 @@
+# Use official Python base image
+FROM python:3.10-slim
+
+# Set working directory to the folder with requirements.txt
+WORKDIR /app/MESSANGER/django
+
+# Install system dependencies (GCC for building packages if needed)
+RUN apt-get update && apt-get install -y gcc && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements.txt and install dependencies
+COPY MESSANGER/django/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the entire project into the container
+COPY . /app
+
+# Run migrations (navigates to the subfolder with manage.py)
+RUN cd chatapp && python manage.py migrate
+
+# Expose the port
+EXPOSE 8000
+
+# Start Daphne, navigating to the chatapp subfolder
+CMD ["sh", "-c", "cd chatapp && daphne chatapp.asgi:application --bind 0.0.0.0 --port $PORT"]
