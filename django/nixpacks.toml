@@ -1,7 +1,5 @@
-providers = ["python"]
-
 [phases.setup]
-packages = [ "python3", "pip" ]
+packages = ["python3Full", "python3Packages.pip", "gcc"]  
 
 [phases.build]
 commands = [
@@ -11,4 +9,4 @@ commands = [
 ]
 
 [phases.start]
-cmd = "cd django/chatapp && daphne chatapp.asgi:application"
+commands = "cd django/chatapp && daphne chatapp.asgi:application"
