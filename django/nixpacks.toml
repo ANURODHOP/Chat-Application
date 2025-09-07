@@ -1,0 +1,16 @@
+[phases.setup]
+packages = ["python3", "python3Packages.pip"]
+
+[phases.build]
+commands = [
+  "cd MESSANGER/django",
+  "pip install -r requirements.txt",
+  "cd django/chatapp",
+  "python manage.py migrate"
+]
+
+[phases.start]
+commands = [
+  "cd MESSANGER/django/chatapp",
+  "daphne chatapp.asgi:application"
+]
