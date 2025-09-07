@@ -9,4 +9,4 @@ commands = [
 ]
 
 [phases.start]
-commands = "cd django/chatapp && daphne chatapp.asgi:application"
+commands = "cd chatapp && daphne chatapp.asgi:application"
