@@ -11,7 +11,7 @@ Backend (Django)
 Clone the repository:
 
 text
-git clone https://github.com/yourusername/chatapplication.git
+git clone https://github.com/ANURODHOP/Chat-Application.git
 cd chatapplication/backend
 Set up virtual environment:
 
